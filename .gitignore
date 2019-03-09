@@ -1,6 +1,6 @@
 
 node_modules
-leadmanager/ui/static/*
+leadmanager/ui/static/ui/*
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django
 
