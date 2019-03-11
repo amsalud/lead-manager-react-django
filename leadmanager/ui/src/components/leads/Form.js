@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export class Form extends Component {
+  state = {
+    name: '',
+    email: '',
+    message: ''
+  };
   render() {
     const { name, email, message } = this.state;
     return (
@@ -48,4 +54,7 @@ export class Form extends Component {
   }
 }
 
-export default Form;
+export default connect(
+  null,
+  { addLead }
+)(Form);
