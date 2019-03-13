@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { returnErrors } from './messages';
-import { USER_LOADED, USER_LOADING, AUTH_ERROR, LOGIN_SUCCESS } from './types';
+import {
+  USER_LOADED,
+  USER_LOADING,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
+} from './types';
 
 // CHECK TOKEN AND LOAD USER
 export const loadUser = () => (dispatch, getState) => {
@@ -54,7 +60,7 @@ export const login = (username, password) => dispatch => {
   });
 
   axios
-    .get('api/auth/login', body, config)
+    .post('api/auth/login', body, config)
     .then(res => {
       dispatch({
         type: LOGIN_SUCCESS,
