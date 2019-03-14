@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { register } from '../../actions/auth';
 import { createMessage } from '../../actions/messages';
 import PropTypes from 'prop-types';
@@ -36,6 +37,10 @@ class Register extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     const { username, email, password, password_confirm } = this.state;
     return (
       <div className="col-md-6 m-auto">
