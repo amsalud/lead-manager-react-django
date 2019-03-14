@@ -33,6 +33,9 @@ export class Alerts extends Component {
       if (message.addLead) {
         alert.success(message.addLead);
       }
+      if (message.passwordsNotMatch) {
+        alert.error(message.passwordsNotMatch);
+      }
     }
   }
 
